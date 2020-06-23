@@ -1,0 +1,221 @@
+@import "_vars";
+
+body {
+    background: #ffffff;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+body, form, div, p, a, img, h1, h2, h3, h4, h5, h6, table, table tr, table td {
+    border: none;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+textarea,
+select {
+    outline: none;
+    font-family: Arial;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    border-radius: $radius;
+    height: 30px;
+    border: 1px solid $colorBorder;
+    transition-duration: 0.3s;
+    padding: 0 $space;
+
+    &:focus {
+        border-color: $colorBase;
+    } 
+
+    &.error {
+        border-color: $colorImportant;
+    }
+}
+
+select {
+    display: block;
+    width: 100%;
+    border-radius: $radius;
+    padding: 0 ($space - 4);
+    height: 30px;
+    border: 1px solid $colorBorder;
+    transition-duration: 0.3s;
+
+    &:focus {
+        border-color: $colorBase;
+    } 
+}
+
+.btn {
+    height: 30px;
+    padding: 0 $space;
+    background-color: $colorBase;
+    border: none;
+    color: #fff;
+    border-radius: $radius;
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+
+    &:hover {
+        background-color: darken($colorBase, 10%);
+    }
+
+    &:disabled {
+        background-color: $colorBorder;
+        cursor: default;
+    }
+}
+
+a {
+    text-decoration: underline;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2 {
+    font-size: 20px;
+    padding: 0 0 10px 0;
+    color: #545454;
+}
+
+.mainer {
+    max-width: 960px;
+    padding: 0 $space;
+    margin: 0 auto;
+}
+
+
+
+.todo-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    > li {
+        border: 1px solid $colorBorder;
+        border-radius: 4px;
+        padding: $space;
+        margin: $space 0 0 0;
+        position: relative;
+        overflow: hidden;
+
+        &.li-for-button {
+            padding: 0;
+            border: none;
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        &:first-child {
+            margin: 0;
+        }
+
+        &:hover {
+            .buttons-block {
+                right: 0;
+            }
+        }
+    }
+
+    .buttons-block {
+        position: absolute;
+        top: 0;
+        right: -300px;
+        padding: 0 ($space/2);
+        background-color: rgba($colorBorder, 0.5);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition-duration: 0.3s;
+
+        .btn {
+            margin: 0 ($space/2);
+        }
+    }
+}
+
+.todo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: (-$space) (-$space) $space (-$space);
+
+    .cell {
+        flex-grow: 1;
+        width: 280px;
+        padding: $space;
+
+        &.empty {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    h3 {
+        color: $colorBase;
+        text-transform: uppercase;
+        border-bottom: 2px solid $colorBase;
+        margin: 0 0 $space 0;
+        padding: 0 0 ($space/2) 0;
+
+        &:hover {
+            .remove {
+                opacity: 1;
+            }
+        }
+    }
+
+    .remove {
+        float: right;
+        margin: 0 0 0 5px;
+        opacity: 0;
+        transition-duration: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            color: $colorImportant;
+        }
+    }
+}
+
+.todo-form {
+    display: flex;
+    margin: 0 (-$space/2) ($space*2) (-$space/2);
+
+    .element {
+        flex-grow: 1;
+        padding: 0 ($space/2);
+
+        &.for-button {
+            flex-grow: 0;
+            width: 150px;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
