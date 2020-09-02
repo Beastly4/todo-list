@@ -1,6 +1,6 @@
 # todo-webpack
 
-> A Vue.js project
+> A Vue.js project todo-list
 
 ## Build Setup
 
